@@ -45,8 +45,8 @@
                     <div class="mdui-textfield">
                         <i id="color-picker-btn" class="mdui-icon material-icons mdui-ripple">color_lens</i>
                         <label class="mdui-textfield-label">高亮用户弹幕颜色</label>
-                        <input id="color" class="mdui-textfield-input" type="text" aria-describedby="op-help" placeholder="留空为不改变"/>
-                        <div class="mdui-textfield-error">数字必须为 0.1 ~ 1.0 之间</div>
+                        <input id="color" class="mdui-textfield-input" type="text" placeholder="留空为不改变" pattern="^#[0-9A-Fa-f]{6}$"/>
+                        <div class="mdui-textfield-error">颜色格式错误</div>
                     </div>
                     <input id="color-picker" type="color" style='display: none;'/>
                 </div>
