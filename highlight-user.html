@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>高亮特定用户弹幕设定</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+            integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+            crossorigin="anonymous"
+        />
+        <meta name="referrer" content="no-referrer">
+    </head>
+    <body class="mdui-appbar-with-toolbar mdui-theme-layout-auto mdui-theme-accent-pink mdui-theme-primary-indigo" style="padding-bottom: 10%;">
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-indigo">
+              <span class="mdui-typo-title">高亮特定用户弹幕设定</span>
+              <div class="mdui-toolbar-spacer"></div>
+            </div>
+          </div>
+          <div class="mdui-container">
+            <h3>高亮用户列表</h3>
+            <button id="delete-btn" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme">删除勾选</button>
+            <div id="list-loading" class="mdui-progress">
+                <div class="mdui-progress-indeterminate"></div>
+              </div>
+            <div class="mdui-list mdui-card" id="hightlight-users" style="height: 500px; overflow-y: auto;"> 
+            </div>
+            <div class="mdui-textfield">
+                <label class="mdui-textfield-label">新增用户ID</label>
+                <input id="user-add" class="mdui-textfield-input" type="number" min="1" placeholder="回车键以新增"/>
+                <div class="mdui-textfield-error">必须为数字</div>
+            </div>
+            <h3>其他设定</h3>
+            <div class="mdui-row-md-2">
+                <div class="mdui-col">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">透明度</label>
+                        <input id="opacity" class="mdui-textfield-input" type="number" step="0.01" min="0.1" max="1.0" placeholder="留空为不改变"/>
+                        <div class="mdui-textfield-error">数字必须为 0.1 ~ 1.0 之间</div>
+                    </div>
+                </div>
+                <div class="mdui-col">
+                    <div class="mdui-textfield">
+                        <i id="color-picker-btn" class="mdui-icon material-icons mdui-ripple">color_lens</i>
+                        <label class="mdui-textfield-label">高亮用户弹幕颜色</label>
+                        <input id="color" class="mdui-textfield-input" type="text" aria-describedby="op-help" placeholder="留空为不改变"/>
+                        <div class="mdui-textfield-error">数字必须为 0.1 ~ 1.0 之间</div>
+                    </div>
+                    <input id="color-picker" type="color" style='display: none;'/>
+                </div>
+            </div>
+            <div class="mdui-row">
+                <label class="mdui-switch">
+                    <input id="play-audio" type="checkbox" aria-describedby="audio-help"/>
+                    <i class="mdui-switch-icon"></i>
+                    <span id="audio-help" style="padding-left: 5px;">启用进入直播间通知音效</span>
+                </label>
+            </div>
+            <div class="mdui-row-md-1">
+                <div class="mdui-row-md-12">
+                   <h4>音效选择</h4>
+                </div>
+                <form id="sound">
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                            <input type="radio" value="w4s8t6ld" name="sound"/>
+                            <i class="mdui-radio-icon"></i>
+                            音效1
+                        </label>
+
+                    </div>
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                            <input type="radio" value="966q9uq4" name="sound"/>
+                            <i class="mdui-radio-icon"></i>
+                            音效2
+                        </label>
+                    </div>
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                            <input type="radio" value="dav8o7f7" name="sound"/>
+                            <i class="mdui-radio-icon"></i>
+                            音效3
+                        </label>
+                    </div>
+                </form>
+                <button id="try-listen" class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple">
+                    <i class="mdui-icon material-icons" style="font-size: medium; padding: 0px;">play_arrow</i>
+                    试听
+                </button>
+            </div>
+          </div>
+          <button id="save-btn" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">save</i></button>
+        <script
+            src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+            integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+    <script>
+        const $ = mdui.$
+        $('#delete-btn').hide()
+        $('#color-picker-btn').on('click', () => {
+            $('#color-picker').trigger('focus')
+            $('#color-picker').trigger('click')
+        })
+        $('#color-picker').on('change', e => {
+            $('#color').val(e.target.value)
+            $('#color-picker-btn').css('color', e.target.value)
+        })
+    </script>
+</html>
