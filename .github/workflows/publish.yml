@@ -21,3 +21,10 @@ jobs:
           region: ${{ secrets.ALIYUN_REGION }}
       - run: aliyun oss rm oss://eric2788/scriptsettings -r -f
       - run: aliyun oss cp ./docs oss://eric2788/scriptsettings -r -u
+      - name: 'Update setting page'
+        id: update-page
+        uses: eric2788/push-javadoc-branch@main
+        with:
+          use-maven: false
+          javadocs: "docs"
+          branch: "settings"
