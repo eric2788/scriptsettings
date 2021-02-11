@@ -25,14 +25,14 @@ jobs:
         id: update-page
         run: |
           git config --global pull.rebase false
-          git config --global user.name "Javadocs Generator Bot"
+          git config --global user.name "设定页面生成"
           git config --global user.email "<>"
-          git branch -D $branch && echo Previous branch $branch successfully removed
-          git checkout --orphan $branch
+          git branch -D settings && echo Previous branch settings successfully removed
+          git checkout --orphan settings
           git fetch
-          git pull origin $branch && echo $branch successfully pulled
+          git pull origin settings && echo settings successfully pulled
           git rm -rf .
           mv  docs/* .
           git add *
           git commit -am "update page"
-          git push -u origin $branch
+          git push -u origin settings
