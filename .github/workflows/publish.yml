@@ -20,4 +20,4 @@ jobs:
           access-key-secret: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
           region: ${{ secrets.ALIYUN_REGION }}
       - run: aliyun oss rm oss://eric2788/scriptsettings -r -f
-      - run: aliyun oss cp ./ oss://eric2788/scriptsettings -r -u
+      - run: aliyun oss cp ./docs oss://eric2788/scriptsettings -r -u
