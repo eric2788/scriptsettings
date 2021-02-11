@@ -23,8 +23,16 @@ jobs:
       - run: aliyun oss cp ./docs oss://eric2788/scriptsettings -r -u
       - name: '更新 Github 页面'
         id: update-page
-        uses: eric2788/push-javadoc-branch@main
-        with:
-          use-maven: false
-          javadocs: "docs"
-          branch: "settings"
+        run: |
+          git config --global pull.rebase false
+          git config --global user.name "Javadocs Generator Bot"
+          git config --global user.email "<>"
+          git branch -D $branch && echo Previous branch $branch successfully removed
+          git checkout --orphan $branch
+          git fetch
+          git pull origin $branch && echo $branch successfully pulled
+          git rm -rf .
+          mv  docs/* .
+          git add *
+          git commit -am "update page"
+          git push -u origin $branch
