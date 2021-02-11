@@ -21,18 +21,3 @@ jobs:
           region: ${{ secrets.ALIYUN_REGION }}
       - run: aliyun oss rm oss://eric2788/scriptsettings -r -f
       - run: aliyun oss cp ./docs oss://eric2788/scriptsettings -r -u
-      - name: '更新 Github 页面'
-        id: update-page
-        run: |
-          git config --global pull.rebase false
-          git config --global user.name "设定页面生成"
-          git config --global user.email "<>"
-          git branch -D settings && echo Previous branch settings successfully removed
-          git checkout --orphan settings
-          git fetch
-          git pull origin settings && echo settings successfully pulled
-          git rm -rf .
-          mv  docs/* .
-          git add *
-          git commit -am "update page"
-          git push -u origin settings
