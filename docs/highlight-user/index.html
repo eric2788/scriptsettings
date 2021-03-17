@@ -17,7 +17,7 @@
             <div class="mdui-toolbar mdui-color-indigo">
               <span class="mdui-typo-title">高亮特定用户弹幕设定</span>
               <div class="mdui-toolbar-spacer"></div>
-              <span>本界面适用版本: v0.7.2</span>
+              <span>本界面适用版本: v0.7.3</span>
             </div>
           </div>
         <div class="mdui-container">
@@ -75,12 +75,22 @@
                     <option value="bottom-center">中下</option>
                 </select>
                 <h4>进入直播间通知音效</h4>
-                <label class="mdui-switch">
-                    <input id="play-audio" type="checkbox" aria-describedby="audio-help" />
-                    <i class="mdui-switch-icon"></i>
-                    <span id="audio-help" style="padding-left: 5px;">启用</span>
-                </label>
                 <div class="mdui-row-md-6">
+                    <div class="mdui-col">
+                        <label class="mdui-switch">
+                            <input id="play-audio" type="checkbox" aria-describedby="audio-help" />
+                            <i class="mdui-switch-icon"></i>
+                            <span id="audio-help" style="padding-left: 5px;">启用</span>
+                        </label>
+                    </div>
+                    <div class="mdui-col">
+                        <small for="volume-join">音量</small>
+                        <label class="mdui-slider mdui-slider-discrete">
+                            <input id="volume-join" type="range" step="1" min="0" max="100" value="0"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="mdui-row-lg-5 mdui-row-md-3">
                     <div class="mdui-col">
                         <label class="mdui-radio">
                             <input type="radio" value="w4s8t6ld" name="sound" />
@@ -109,6 +119,13 @@
                             音效4
                         </label>
                     </div>
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                            <input type="radio" value="wcigcsxp" name="sound" />
+                            <i class="mdui-radio-icon"></i>
+                            音效5
+                        </label>
+                    </div>
                 </div>
                 <button type="button" id="try-listen"
                     class="mdui-btn mdui-btn-dense mdui-ripple mdui-color-theme-accent">
@@ -116,12 +133,22 @@
                     试听
                 </button>
                 <h4>高亮用户弹幕发送通知音效</h4>
-                <label class="mdui-switch">
-                    <input id="play-audio-danmu" type="checkbox" aria-describedby="audio-danmu-help" />
-                    <i class="mdui-switch-icon"></i>
-                    <span id="audio-danmu-help" style="padding-left: 5px;">启用</span>
-                </label>
                 <div class="mdui-row-md-6">
+                    <div class="mdui-col">
+                        <label class="mdui-switch">
+                            <input id="play-audio-danmu" type="checkbox" aria-describedby="audio-danmu-help" />
+                            <i class="mdui-switch-icon"></i>
+                            <span id="audio-danmu-help" style="padding-left: 5px;">启用</span>
+                        </label>
+                    </div>
+                    <div class="mdui-col">
+                        <small for="volume-danmu">音量</small>
+                        <label class="mdui-slider mdui-slider-discrete">
+                            <input id="volume-danmu" type="range" step="1" min="0" max="100" value="0"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="mdui-row-lg-5 mdui-row-md-3">
                     <div class="mdui-col">
                         <label class="mdui-radio">
                             <input type="radio" value="ma2g204k" name="sound-danmu" />
@@ -141,6 +168,20 @@
                             <input type="radio" value="bufbg41i" name="sound-danmu" />
                             <i class="mdui-radio-icon"></i>
                             音效3
+                        </label>
+                    </div>
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                            <input type="radio" value="oj2osz4a" name="sound-danmu" />
+                            <i class="mdui-radio-icon"></i>
+                            音效4
+                        </label>
+                    </div>
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                            <input type="radio" value="6xglyv5n" name="sound-danmu" />
+                            <i class="mdui-radio-icon"></i>
+                            音效5
                         </label>
                     </div>
                 </div>
